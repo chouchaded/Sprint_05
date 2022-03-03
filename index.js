@@ -3,41 +3,16 @@ async function fetchRestCountrie() {
   const countries = await response.json();
   return countries;
 }
-fetchRestCountrie().then(countries => {
-    countries; 
-    console.log(countries);
-    for (let i = 0; i < countries.length; i++) {
+fetchRestCountrie().then((countries) => {
+  countries;
+  console.log(countries);
+  for (let ordre in countries) {
+    let nomPays = countries[ordre].name.official;
+    console.log(nomPays);
 
-             let nameRest = countries[i].name.official;
-    console.log(nameRest);
-            let html=document.getElementById('list');
-            let name=document.createElement('li');
-         name.textContent = nameRest;
-            html.appendChild(name);
-                 }
+    let a = document.getElementById("result");
+    let list = document.createElement("li");
+    list.textContent = nomPays;
+    a.appendChild(list);
+  }
 });
-
-
-
-
-//  fetch("https://restcountries.com/v3.1/region/europe"
-// )
-//     .then(function (res) {
-    
-//         return res.json();
-//     })
-//      .then(function (data) {
-//         console.log(data);
-//          for (let i = 0; i < data.length; i++) {
-
-//              let nameRest = data[i].name.official;
-//     console.log(nameRest);
-//             let html=document.getElementById('list');
-//             let name=document.createElement('li');
-//          name.textContent = nameRest;
-//             html.appendChild(name);
-//                  }
-         
-//     });
-
-   
