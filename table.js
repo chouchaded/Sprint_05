@@ -1,12 +1,27 @@
 async function fetchRestCountrie() {
-  const response = await fetch("https://restcountries.com/v3.1/region/europe");
-  const countries = await response.json();
-  return countries;
-}
-fetchRestCountrie().then((countries) => {
-  countries;
+  let countries;
+  let response;
+  try {
+    response = await fetch("https://restcountries.com/v3.1/region/europe");
+    console.log("response", response);
+  } catch (error) {
+    console.error("2222! Something error:");
+    // Network Error!
+    console.error(error);
+    return;
+  }
+
+  // TODO: gérer le status de la Response
+  countries = await response.json();
+  console.log("countries zezzz ", countries);
+
+  // try {
   console.log(countries);
   for (let ordre in countries) {
+    console.log("ordre", ordre);
+    console.log("countries[ordre]", countries[ordre]);
+    console.log("countries[ordre].name", countries[ordre].name);
+    // console.log("countries[ordre].naaame", countries[ordre].naaame);
     let nomPays = countries[ordre].name.official;
     let surface = countries[ordre].area;
     let popul = countries[ordre].population;
@@ -35,4 +50,11 @@ fetchRestCountrie().then((countries) => {
     trLigne.appendChild(populPei);
     trLigne.appendChild(capiPei);
   }
-});
+  // } catch (error) {
+  //   console.error("Noooooo! Something error:");
+  //   // Network Error!
+  //   console.error(error);
+  // }
+}
+
+fetchRestCountrie();
