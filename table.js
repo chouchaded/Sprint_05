@@ -20,9 +20,13 @@ fetchRestCountrie().then((countries) => {
     let populPei = document.createElement("td");
     let capiPei = document.createElement("td");
 
+    surfPei.className = "text-end";
+    populPei.className = "text-end";
+    pei.className = "fw-bolder";
+
     pei.textContent = countries[ordre].name.official;
-    surfPei.textContent = surface;
-    populPei.textContent = popul;
+    surfPei.textContent = surface.toLocaleString("en-En");
+    populPei.textContent = popul.toLocaleString("en-En");
     capiPei.textContent = capital;
 
     table.appendChild(trLigne);
