@@ -1,6 +1,7 @@
 async function fetchRestCountrie() {
   let countries;
   let response;
+
   try {
     response = await fetch("https://restcountries.com/v3.1/region/europe");
     console.log("response", response);
@@ -33,16 +34,9 @@ async function fetchRestCountrie() {
   }
 
   // TODO: gérer le status de la Response
-  // countries = await response.json();
+
   console.log("countries erreur ", countries.status);
-  // if (countries.status == 404) {
-  //   let erreur = "Loading error, please contact the administrator !";
-  //   let b = document.getElementById("yes");
-  //   let erreur1 = document.createElement("p");
-  //   erreur1.textContent = erreur;
-  //   b.appendChild(erreur1);
-  // }
-  // try {
+ 
   console.log(countries);
   for (let ordre in countries) {
     console.log("ordre", ordre);
