@@ -58,7 +58,7 @@ async function fetchRestCountrie() {
 
     surfPei.className = "text-end";
     populPei.className = "text-end";
-    pei.className = "fw-bolder";
+    pei.className = "fw-bolder text-nowrap";
 
     pei.textContent = countries[ordre].name.official;
     surfPei.textContent = surface.toLocaleString("en-En");
